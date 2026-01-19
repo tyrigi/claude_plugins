@@ -1,0 +1,50 @@
+{
+  "_comment": "Add this to ~/.claude/settings.json under 'hooks' key",
+  "_instructions": "Replace PLUGIN_PATH with your actual installation path",
+
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PLUGIN_PATH/hooks/pull_hook.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PLUGIN_PATH/hooks/push_hook.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PLUGIN_PATH/hooks/push_hook.sh",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PLUGIN_PATH/hooks/push_hook.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

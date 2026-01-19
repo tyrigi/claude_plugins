@@ -1,0 +1,13 @@
+{
+  "_comment": "Add this to ~/.claude.json under 'mcpServers' key",
+  "_instructions": "Replace PLUGIN_PATH and VENV_PATH with actual paths",
+
+  "memory": {
+    "type": "stdio",
+    "command": "VENV_PATH/bin/python",
+    "args": [
+      "PLUGIN_PATH/mcp/memory_mcp_server.py"
+    ],
+    "env": {}
+  }
+}

@@ -1,0 +1,14 @@
+# Claude Memory Plugin - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core Mem0 library
+mem0ai>=0.1.0
+
+# HTTP client for Ollama API
+httpx>=0.24.0
+
+# MCP server framework
+mcp>=1.0.0
+
+# Qdrant client (used by mem0ai, but good to pin)
+qdrant-client>=1.7.0

@@ -1,0 +1,29 @@
+# Memory Worker Service Template
+# Copy to /etc/systemd/system/memory-worker.service
+# Then: sudo systemctl daemon-reload && sudo systemctl enable --now memory-worker
+
+[Unit]
+Description=Mem0 Memory Queue Worker
+After=network.target ollama.service qdrant.service
+Wants=ollama.service
+
+[Service]
+Type=simple
+# UPDATE: Change to your username
+User=PLUGIN_USER
+Group=PLUGIN_USER
+# UPDATE: Change to your plugin installation path
+WorkingDirectory=PLUGIN_PATH/hooks
+Environment="PATH=VENV_PATH/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="TOKENIZERS_PARALLELISM=false"
+ExecStart=VENV_PATH/bin/python PLUGIN_PATH/hooks/memory_worker.py --daemon
+ExecStop=VENV_PATH/bin/python PLUGIN_PATH/hooks/drain_queue.py
+TimeoutStopSec=600
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=memory-worker
+
+[Install]
+WantedBy=multi-user.target
