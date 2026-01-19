@@ -4,20 +4,11 @@
 
 ### Linux / macOS
 ```bash
-# Install via npm (recommended)
-npm install -g @anthropic-ai/claude-code
-
-# Or via curl
 curl -fsSL https://claude.ai/install-cli | sh
 ```
 
 ### Windows
-```powershell
-# Install via npm
-npm install -g @anthropic-ai/claude-code
-
-# Or download installer from claude.ai/download
-```
+Download installer from [claude.ai/download](https://claude.ai/download)
 
 ### First Run
 ```bash
@@ -48,16 +39,11 @@ Before installing the memory plugin, you need:
 
 Start Claude Code and say:
 ```
-Read the setup skill at github.com/tyrigi/claude_plugins/blob/main/claude-memory-plugin/skills/setup.md
-and deploy the memory plugin on this system.
+Clone github.com/tyrigi/claude_plugins and read the setup skill at
+claude-memory-plugin/skills/setup.md - deploy the memory plugin on this system.
 ```
 
-Claude will:
-1. Detect your OS, GPU, and existing services
-2. Install missing dependencies
-3. Configure hooks and MCP server
-4. Set up background worker service
-5. Verify the installation
+Claude will detect the environment and adapt the installation accordingly.
 
 ### Manual Install
 
